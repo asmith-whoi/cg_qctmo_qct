@@ -8,7 +8,7 @@ documentation and calibration CSV files.
 * Windows 7 or later
 * Python 3.X
 * Python packages
-	* py-serial
+	* pyserial
 	* python-docx
 
 ## Usage
