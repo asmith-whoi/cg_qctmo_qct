@@ -5,6 +5,7 @@ documentation and calibration CSV files.
 
 ## Requirements
 
+* Windows 7 or later
 * Python 3.X
 * Python packages
 	* py-serial
