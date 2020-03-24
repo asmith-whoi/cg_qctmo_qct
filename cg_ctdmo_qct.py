@@ -608,7 +608,7 @@ desired_id = '01'
 # ---------------------------------------------------------------------------- #
 # ---- Main program loop ----
 while not time_to_quit:
-    print("\r\nCTDMO QCT v1.0.1")
+    print("\r\nCTDMO QCT v2.0.1")
     print("MAIN MENU")
     print("---------")
     print("1) Test an instrument")
