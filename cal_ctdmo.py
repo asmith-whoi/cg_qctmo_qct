@@ -2,11 +2,12 @@ import xml.etree.ElementTree as ET
 from datetime import datetime as dt
 import csv
 
-def generate_csv(cal_xml, series_letter):
+def generate_csv(cal_xml, series_letter, formnumber):
     """Parse XML instrument calibration values into a new CSV file"""
     root = ET.fromstring(cal_xml)
     
     serial_no = '37-%s' % root.items()[1][1][3:]
+    source_file = "source_file 3305-00101-%s-A_SN_%s_QCT_Results_CTDMO-%s.txt" % (formnumber, serial_no, series_letter)
     cal_date = get_cal_date(root)
     filename = get_filename(series_letter, serial_no, cal_date)
     
@@ -31,7 +32,7 @@ def write_cal_file(root, serial_no, filename):
     with open('%s.csv' % filename, 'w', newline='') as cal_file:
         writer = csv.writer(cal_file)
         writer.writerow(["serial", "name","value","notes"])
-        writer.writerow([serial_no, "CC_a0", t.find('A0').text,""])
+        writer.writerow([serial_no, "CC_a0", t.find('A0').text,source_file])
         writer.writerow([serial_no, "CC_a1", t.find('A1').text,""])
         writer.writerow([serial_no, "CC_a2", t.find('A2').text,""])
         writer.writerow([serial_no, "CC_a3", t.find('A3').text,""])
