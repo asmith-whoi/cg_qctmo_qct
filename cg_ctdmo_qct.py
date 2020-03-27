@@ -325,7 +325,7 @@ def ctdmo_qct_test(port, username, formnumber):
     # Generate the calibration CSV...
     print("Exporting calibration to CSV...")
     cc_xml = cc_repl[8:-2]
-    cal_ctdmo.generate_csv(cc_xml, seriesletter)
+    cal_ctdmo.generate_csv(cc_xml, seriesletter, formnumber)
     
     # ---- 8.3.9 ----
     this_step_complete = False
