@@ -9,7 +9,7 @@ def generate_csv(cal_xml, series_letter, formnumber):
     serial_no = '37-%s' % root.items()[1][1][3:]
     source_file = "source_file 3305-00101-%s-A_SN_%s_QCT_Results_CTDMO-%s.txt" % (formnumber, serial_no, series_letter)
     cal_date = get_cal_date(root)
-    filename = get_filename(series_letter, serial_no, cal_date)
+    filename = get_filename(series_letter, serial_no, cal_date, source_file)
     
     write_cal_file(root, serial_no, filename)
     
@@ -24,7 +24,7 @@ def get_cal_date(root):
     cal_dates = [dt.strptime(d.text, '%d-%b-%y') for d in cal_dates_text]
     return max(cal_dates)
 
-def write_cal_file(root, serial_no, filename):
+def write_cal_file(root, serial_no, filename, source_file):
     """Open a new CSV file and write cal coefficients to each line"""
     # Separate temperature, conductivity and pressure from XML...
     t, c, p = iter(root.findall('Calibration'))
